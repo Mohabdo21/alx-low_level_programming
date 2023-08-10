@@ -1,16 +1,16 @@
 #include <stdio.h>
+
 /**
- * Simple C file to ptint a String with new line
+ * main - Entry point of the program
+ *
+ * This function demonstrates the use of puts to print.
+ *
+ * Return: Always 0 (Success)
  */
 
 int main(void)
-/**
- * Void function uses puts
- */
 {
-puts("\"Programming is like building a multilingual puzzle");
-/**
- * Return Value 0
- */
-return (0);
+	/* Print a message using puts */
+	puts("\"Programming is like building a multilingual puzzle");
+	return (0);
 }
