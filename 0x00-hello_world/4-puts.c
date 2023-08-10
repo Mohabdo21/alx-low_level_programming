@@ -1,8 +1,12 @@
 #include <stdio.h>
 
+/**
+ *  The Main function to print exactly string "Programming is like building a multilingual puzzle"
+ *
+ */
+
 int main(void)
 {
-/* The Main function to print exactly string */
 puts("\"Programming is like building a multilingual puzzle");
 return (0);
 }
