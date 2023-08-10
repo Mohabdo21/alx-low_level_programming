@@ -10,7 +10,7 @@
 
 int main(void)
 {
-        /* Print a message using printf */
-        printf("with proper grammer, but the outcome is a piece of art,");
-        return (0);
+/* Print a message using printf */
+printf("with proper grammer, but the outcome is a piece of art,\n");
+return (0);
 }
