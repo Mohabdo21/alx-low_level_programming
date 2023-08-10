@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 /**
- *  The Main function to print exactly string "Programming is like building a multilingual puzzle"
- *
+ *  Main function print string "Programming is like building a multilingual puzzle"
+ * int ,return 0.
  */
 
 int main(void)
