@@ -5,6 +5,11 @@
  * Return: 0 Always (Success)
  */
 void print_fibonacci(int n)
+/**
+ * print_fibonacci - prints fibonacci number for selected
+ *
+ * n - initialzation value
+ */
 {
 	unsigned long a = 1;
 	unsigned long b = 2;
