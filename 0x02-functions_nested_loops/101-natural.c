@@ -1,14 +1,21 @@
 #include <stdio.h>
-#include "main.h"
 /**
- * main - The Entry point of the program
+ * main - the Entry point of the program
  *
- * Return: 0 Always (Success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int limit = 1024;
-	int sum = calculate_multiples_sum(limit);
+	int sum = 0;
+	int i;
+
+	for (i = 0; i < 1024; i++)
+	{
+	if (i % 3 == 0 || i % 5 == 0)
+	{
+		sum += i;
+	}
+	}
 
 	printf("%d\n", sum);
 
