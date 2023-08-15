@@ -19,8 +19,10 @@ void times_table(void)
 		else if (column != 0 || product >= 10)
 		_putchar(' ');
 
+		if (column != 0)
+		_putchar(' ');
 
-		if (product < 10 && column != 0)
+		if (product < 10)
 		_putchar(' ');
 
 
