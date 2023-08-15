@@ -13,16 +13,16 @@ int _putchar(char c);
  */
 void print_number(int n)
 {
-    if (n < 0)
-    {
-        _putchar('-');
-        n = -n;
-    }
+	if (n < 0)
+	{
+	_putchar('-');
+	n = -n;
+	}
 
-    if (n >= 10)
-        print_number(n / 10);
+	if (n >= 10)
+	print_number(n / 10);
 
-    _putchar((n % 10) + '0');
+	_putchar((n % 10) + '0');
 }
 
 /**
@@ -31,33 +31,34 @@ void print_number(int n)
  */
 void print_times_table(int n)
 {
-    int i;
-   int j;
-  int result;
-    if (n > 15 || n < 0)
-        return;
+	int i;
+	int j;
+	int result;
+
+	if (n > 15 || n < 0)
+
+	return;
 
 
-    for (i = 0; i <= n; i++)
-    {
-        for (j = 0; j <= n; j++)
-        {
-            result = i * j;
-            if (j != 0)
-            {
-                _putchar(',');
-                _putchar(' ');
-                if (result < 10)
-                    _putchar(' ');
-                if (result < 100)
-                    _putchar(' ');
-            }
+	for (i = 0; i <= n; i++)
+	{
+	for (j = 0; j <= n; j++)
+	{
+	result = i * j;
+	if (j != 0)
+	{
+		_putchar(',');
+		_putchar(' ');
+		if (result < 10)
+		_putchar(' ');
+		if (result < 100)
+		_putchar(' ');
+	}
 
-            print_number(result);
+		print_number(result);
 
-            if (j == n)
-                _putchar('\n');
-        }
-    }
+		if (j == n)
+		_putchar('\n');
+	}
+	}
 }
-
