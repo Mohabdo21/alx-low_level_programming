@@ -1,10 +1,10 @@
 #include <stdio.h>
-
 /**
-* main - causes an infinite loop
-* Return: 0
+* main - Entry point for the program
+* Return: Always 0 (Success)
+* Description: This function prints a message
+* to indicate the avoidance of an infinite loop.
 */
-
 int main(void)
 {
 	int i;
@@ -13,7 +13,7 @@ int main(void)
 
 	i = 0;
 /**
-* infinit loop:	while (i < 10)
+* infinit loop cause:	while (i < 10)
 *	{
 *		putchar(i);
 *	}
