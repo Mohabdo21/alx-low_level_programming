@@ -1,15 +1,9 @@
 #include <stdio.h>
 /**
- * main - The Entry point of the program
- *
- * Return: 0 Always (Success)
+ * print_fibonacci - Prints Fibonacci numbers up to a given value.
+ * @n: The number of Fibonacci numbers to print.
  */
 void print_fibonacci(int n)
-/**
- * print_fibonacci - prints fibonacci number for selected
- *
- * n - initialzation value
- */
 {
 	unsigned long a = 1;
 	unsigned long b = 2;
@@ -27,7 +21,11 @@ void print_fibonacci(int n)
 	}
 	printf("\n");
 }
-
+/**
+ * main - The entry point of the program.
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 	print_fibonacci(50);
