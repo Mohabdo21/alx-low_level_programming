@@ -12,7 +12,7 @@ int main(void)
 	unsigned long int next;
 	unsigned long int sum = 2;
 
-    while (1)
+	while (1)
 	{
 	next = a + b;
 
