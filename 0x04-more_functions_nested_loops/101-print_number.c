@@ -1,4 +1,4 @@
-#include "main.h"
+#include "main"
 #include <stdio.h>
 /**
  * print_number - Function to print an integer
