@@ -1,8 +1,10 @@
 #include "main.h"
 /**
  * mul - multiply two digits and return a result
- * @a & @b the numbers will multiplied
- * Return: int * int
+ * @a: The first integer
+ * @b: The second integer
+ *
+ * Return: The product of a and b
  */
 int mul(int a,int b)
 {
