@@ -1,29 +1,23 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * print_number - Function to print an integer
  * @n: The Number Should Printed
  */
 void print_number(int n)
 {
-	int divsr = 1;
-	int tmp = n;
+	unsigned int divsr = n;
 
 	if (n < 0)
 	{
-		_putchar(45);
 		n *= -1;
+		divsr = n;
+		_putchar(45);
 	}
-
-	while (tmp > 9)
+	divsr /=10;
+	if (divsr != 0)
 	{
-		divsr *= 10;
-		tmp /= 10;
+		print_number(divsr);
 	}
-
-	while (divsr != 0)
-	{
-		_putchar((n / divsr) + '0');
-		n %= divsr;
-		divsr /= 10;
-	}
+		_putchar((unsigned) n % 10 + 48);
 }
