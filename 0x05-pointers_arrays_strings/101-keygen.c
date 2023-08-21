@@ -21,7 +21,7 @@ int main(void)
 			password[j] = rand() % ('z' - '!' + 1) + '!'; /* '!' to 'z' inclusive */
 		}
 
-		password[8] = '\0'; /* Null-terminate the password */
+		password[9] = '\0'; /* Null-terminate the password */
 
 		printf("%s\n", password);
 	}
