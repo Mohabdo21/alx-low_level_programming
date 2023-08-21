@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+/**
+ * main - Entry point , Generates random valid passwords for the program 101-crackme.
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	int i;
+	int j;
+	char password[6]; /* Password length is 5 characters */
+
+	srand(time(NULL)); /* Initialize random number generator with current time */
+
+	for (i = 0; i < 10; i++) /* Generate 10 passwords */
+	{
+		for (j = 0; j < 5; j++) /* Generate 5 characters for the password */
+		{
+			password[j] = rand() % ('z' - '!' + 1) + '!'; /* '!' to 'z' inclusive */
+		}
+
+		password[5] = '\0'; /* Null-terminate the password */
+
+		printf("Generated password: %s\n", password);
+	}
+
+	return (0);
+}
