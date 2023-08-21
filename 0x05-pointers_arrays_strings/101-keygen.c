@@ -14,7 +14,7 @@ int main(void)
 
 	srand(time(NULL)); /* Initialize random number generator with current time */
 
-	for (i = 0; i < 100; i++) /* Generate 10 passwords */
+	for (i = 0; i < 100; i++) /* Generate 100 passwords */
 	{
 		for (j = 0; j < 5; j++) /* Generate 5 characters for the password */
 		{
