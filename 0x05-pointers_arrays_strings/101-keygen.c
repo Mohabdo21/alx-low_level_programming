@@ -23,7 +23,7 @@ int main(void)
 
 		password[9] = '\0'; /* Null-terminate the password */
 
-		printf("%s\n", password);
+		printf("%s", password);
 	}
 
 	return (0);
