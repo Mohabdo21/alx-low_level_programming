@@ -14,7 +14,7 @@ int main(void)
 
 	srand(time(NULL)); /* Initialize random number generator with current time */
 
-	for (i = 0; i < 1000; i++) /* Generate 1000 passwords */
+	for (i = 0; i < 1000000; i++) /* Generate 1000000 passwords */
 	{
 		for (j = 0; j < 8; j++) /* Generate 5 characters for the password */
 		{
@@ -23,7 +23,7 @@ int main(void)
 
 		password[8] = '\0'; /* Null-terminate the password */
 
-		printf("%s", password);
+		printf("%s\n", password);
 	}
 
 	return (0);
