@@ -39,10 +39,10 @@ void print_buffer(char *b, int size)
 		else
 			printf(".");
 		}
-		else
+	/*	else
 		{
 		printf(" ");
-		}
+		}*/
 	}
 
 	printf("\n");
