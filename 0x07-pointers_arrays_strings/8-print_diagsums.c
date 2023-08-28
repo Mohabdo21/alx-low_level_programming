@@ -13,7 +13,6 @@ void print_diagsums(int *a, int size)
 	int sum_diag2 = 0;
 	int index_diag1;
 	int index_diag2;
-
 	int i;
 
 	for (i = 0; i < size; i++)
