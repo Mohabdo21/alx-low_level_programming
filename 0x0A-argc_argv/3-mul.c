@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 {
 	int result;
 
-	while ((argc - 1) == 0)
+	while (argc != 3)
 	{
 		printf("Error\n");
 		return (1);
