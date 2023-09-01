@@ -20,6 +20,12 @@ int main(int argc, char *argv[])
 
 	change = atoi(argv[1]);
 
+	if (change < 0)
+	{
+		printf("0\n");
+		return (0);
+	}
+
 	for (i = 0; i < 5; i++)
 	{
 		counter += change / cents[i];
