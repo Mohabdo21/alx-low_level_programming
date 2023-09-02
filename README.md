@@ -10,6 +10,7 @@
     <img src="https://img.shields.io/badge/Twitter-blue?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter Badge"/>
   </a>
   <img src="https://komarev.com/ghpvc/?username=Mhabdo21&style=flat-square&color=blue" alt=""/>
+  </a>
 </div align="center">
 
 <h1 align="center">
