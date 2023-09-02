@@ -19,3 +19,9 @@
 </h1>
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Mohabdo21&layout=compact&theme=vision-friendly-dark)](https://github.com/anuraghazra/github-readme-stats)
+
+---
+
+
+### :man_technologist: About Me :
+I am a Full Stack Developer <img src="https://media.giphy.com/media/bGgsc5mWoryfgKBx1u/giphy.gif" width="30"> from Sudan.
