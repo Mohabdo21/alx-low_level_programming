@@ -24,4 +24,4 @@
 
 
 ### :man_technologist: About Me :
-I am a Full Stack Developer <img src="https://media.giphy.com/media/bGgsc5mWoryfgKBx1u/giphy.gif" width="30"> from Sudan.
+I am a Software Engineering Student @ Alx Africa <img src="https://media.giphy.com/media/bGgsc5mWoryfgKBx1u/giphy.gif" width="30"> from Sudan.
