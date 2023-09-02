@@ -22,14 +22,15 @@
 
 ---
 
-
+<h2 align="left">
 ### :man_technologist: About Me :
 I am a Software Engineering Student @ Alx Africa <img src="https://media.giphy.com/media/bGgsc5mWoryfgKBx1u/giphy.gif" width="30"> from Sudan.
 
-- :telescope: I’m a Student @ Ax Afica Cohort 18.
+- :telescope: I’m a Student @ Alx Afica Cohort 18.
 
 - :seedling: Exploring Technical Content Writing.
 
 - :zap: In my free time, I read tech articles.
 
 - :mailbox:How to reach me: [![Linkedin Badge](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohannad-abdul-aziz-babeker-6bb984111/)
+</h2>
