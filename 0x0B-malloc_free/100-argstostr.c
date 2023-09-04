@@ -19,11 +19,9 @@ char *argstostr(int ac, char **av)
 	return (NULL);
 
 	total_length = 0;
-
 	for (i = 0; i < ac; i++)
 	{
 		j = 0;
-
 		while (av[i][j] != '\0')
 		{
 			total_length++;
@@ -31,14 +29,12 @@ char *argstostr(int ac, char **av)
 		}
 		total_length++;
 	}
-
 	concatenated = malloc(total_length + 1);
 
 	if (concatenated == NULL)
 	return (NULL);
 
 	position = 0;
-
 	for (i = 0; i < ac; i++)
 	{
 		j = 0;
@@ -49,8 +45,6 @@ char *argstostr(int ac, char **av)
 		}
 		concatenated[position++] = '\n';
 	}
-
 	concatenated[position] = '\0';
-
 	return (concatenated);
 }
