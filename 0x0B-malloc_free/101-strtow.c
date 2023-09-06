@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 /**
@@ -41,36 +40,26 @@ int count_words(char *str)
  */
 char **strtow(char *str)
 {
-	int num_words;
+	int num_words, word_index, word_start, in_word, i, j, word_length;
 	char **words;
-	int word_index;
-	int word_start;
-	int in_word;
-	int i, j;
-	int word_length;
 
 	if (str == NULL || *str == '\0')
 	{
 		return (NULL);
 	}
-
 	num_words = count_words(str);
-
 	if (num_words == 0)
 	{
 		return (NULL);
 	}
-
 	words = (char **)malloc((num_words + 1) * sizeof(char *));
 	if (words == NULL)
 	{
 		return (NULL);
 	}
-
 	word_index = 0;
 	word_start = 0;
 	in_word = 0;
-
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] != ' ')
@@ -103,7 +92,6 @@ char **strtow(char *str)
 			}
 		}
 	}
-
 	if (in_word)
 	{
 		word_length = strlen(str + word_start);
@@ -121,6 +109,5 @@ char **strtow(char *str)
 		word_index++;
 	}
 	words[word_index] = NULL;
-
 	return (words);
 }
