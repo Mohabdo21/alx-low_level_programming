@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 /**
- * counter_words - a helper function to count words in a string
- * @srt: string to count it's words
- * Return: Number of words, else NULL
+ * count_words - a helper function to count words in a string
+ * @str: string to count it's words
+ * Return: Number of words, else 0
  */
 int count_words(char *str)
 {
