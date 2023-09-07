@@ -1,42 +1,84 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
+/**
+ * is_digit - Checks if a character is a digit.
+ * @c: The character to check.
+ *
+ * Return: 1 if 'c' is a digit, 0 otherwise.
+ */
 int is_digit(char c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-int str_to_int(char *str)
+/**
+ * multiply_large_numbers - Multiplies two
+ * large numbers represented as strings.
+ * @num1: The first number as a string.
+ * @num2: The second number as a string.
+ *
+ * Return: A dynamically allocated string containing the product.
+ *         The caller is responsible for freeing the memory.
+ */
+char *multiply_large_numbers(char *num1, char *num2)
 {
-	int result, sign, i;
+	int len1, len2, result_len;
+	int i, carry, j, product;
+	int leading_zeros;
+	char *result;
 
-	result = 0;
-	sign = 1;
-	i = 0;
+	len1 = strlen(num1);
+	len2 = strlen(num2);
 
-	if (str[0] == '-')
+	result_len = len1 + len2;
+	result = (char *)malloc((result_len + 1) * sizeof(char));
+
+	if (result == NULL)
 	{
-		sign = -1;
-		i = 1;
+		printf("Error: Memory allocation failed\n");
+		exit(1);
 	}
-
-	while (str[i] != '\0')
+	memset(result, '0', result_len);
+	result[result_len] = '\0';
+	for (i = len1 - 1; i >= 0; i--)
 	{
-		if (!is_digit(str[i]))
+		carry = 0;
+		for (j = len2 - 1; j >= 0; j--)
 		{
-			printf("Error\n");
-			exit(98);
+		product = (num1[i] - '0') * (num2[j] - '0') +
+			(result[i + j + 1] - '0') + carry;
+			carry = product / 10;
+			result[i + j + 1] = (product % 10) + '0';
 		}
-		result = result * 10 + (str[i] - '0');
-		i++;
+		result[i] += carry;
 	}
-	return (result * sign);
+	leading_zeros = 0;
+	while (result[leading_zeros] == '0' && result[leading_zeros + 1] != '\0')
+	{
+		leading_zeros++;
+	}
+	if (leading_zeros > 0)
+	{
+		memmove(result, result + leading_zeros, result_len - leading_zeros + 1);
+	}
+	return (result);
 }
 
+/**
+ * main - Entry point of the program.
+ * @argc: The number of command-line arguments.
+ * @argv: An array of command-line argument strings.
+ *
+ * Return: 0 if successful, 98 if there are incorrect
+ * arguments or invalid characters in the input.
+ */
 int main(int argc, char *argv[])
 {
-	int num1, num2;
-	long result;
+	char *num1;
+	char *num2;
+	char *result;
 
 	if (argc != 3)
 	{
@@ -44,17 +86,21 @@ int main(int argc, char *argv[])
 		return (98);
 	}
 
-	num1 = str_to_int(argv[1]);
-	num2 = str_to_int(argv[2]);
-	result = (long)num1 * num2;
+	num1 = argv[1];
+	num2 = argv[2];
 
-	if (result < 0)
+	if (!is_digit(num1[0]) || !is_digit(num2[0]))
 	{
 		printf("Error\n");
 		return (98);
 	}
 
-	printf("%ld\n", result);
+	result = multiply_large_numbers(num1, num2);
+
+	printf("%s\n", result);
+
+	free(result);
+
 	return (0);
 }
 
