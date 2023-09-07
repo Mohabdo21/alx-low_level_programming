@@ -10,7 +10,11 @@
  */
 int is_digit(char c)
 {
-	return (c >= '0' && c <= '9');
+	if (c >= '0' && c <= '9')
+		return (1);
+
+	printf("Error\n");
+	return (0);
 }
 
 /**
@@ -103,4 +107,3 @@ int main(int argc, char *argv[])
 
 	return (0);
 }
-
