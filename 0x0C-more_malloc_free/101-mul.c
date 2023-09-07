@@ -14,7 +14,7 @@ int is_digit(char c)
 		return (1);
 
 	printf("Error\n");
-	return (98);
+	exit(98);
 }
 
 /**
@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
 	if (argc != 3)
 	{
 		printf("Error\n");
-		return (98);
+		exit(98);
 	}
 
 	num1 = argv[1];
@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
 		if (!is_digit(num1[i]))
 		{
 			printf("Error\n");
-			return (98);
+			exit(98);
 		}
 	}
 
@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
 		if (!is_digit(num2[j]))
 		{
 			printf("Error\n");
-			return (98);
+			exit(98);
 		}
 	}
 
