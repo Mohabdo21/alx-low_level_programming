@@ -14,7 +14,7 @@ int is_digit(char c)
 		return (1);
 
 	printf("Error\n");
-	return (0);
+	return (98);
 }
 
 /**
@@ -83,6 +83,7 @@ int main(int argc, char *argv[])
 	char *num1;
 	char *num2;
 	char *result;
+	long unsigned int i, j;
 
 	if (argc != 3)
 	{
@@ -92,11 +93,23 @@ int main(int argc, char *argv[])
 
 	num1 = argv[1];
 	num2 = argv[2];
-
-	if (!is_digit(num1[0]) || !is_digit(num2[0]))
+	
+	for (i = 0; i < strlen(num1); i++)
 	{
-		printf("Error\n");
-		return (98);
+		if (!is_digit(num1[i]))
+		{
+			printf("Error\n");
+			return (98);
+		}
+	}
+
+	for (j = 0; j < strlen(num2); j++)
+	{
+		if(!is_digit(num2[j]))
+		{
+			printf("Error\n");
+			return (98);
+		}
 	}
 
 	result = multiply_large_numbers(num1, num2);
