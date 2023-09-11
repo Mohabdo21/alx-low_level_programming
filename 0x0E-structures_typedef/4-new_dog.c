@@ -6,7 +6,7 @@
  * @name: Dog's name
  * @age: Dog's Age
  * @owner: Dog's Owner
- *
+ * Descripstion: Create a new dog record
  * Return: Pointer to the newly created dog_t, else NULL
  */
 dog_t *new_dog(char *name, float age, char *owner)
