@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "dog.h"
 /**
- * new_dog - Creates a new dog and copies the name and owner
+ * new_dog - Creates a new dog and copies the name, owner and age
  * @name: Dog's name
  * @age: Dog's Age
  * @owner: Dog's Owner
@@ -22,20 +22,24 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	while (name[name_len] != '\0')
 		name_len++;
-	while(owner[owner_len] != '\0')
+	while (owner[owner_len] != '\0')
 		owner_len++;
 
 	dog_t *new_dog = malloc(sizeof(dog_t));
+
 	if (new_dog == NULL)
 		return (NULL);
 
 	new_dog->name = malloc(name_len + 1);
+
 	if (new_dog->name == NULL)
 	{
 		free(new_dog);
 		return (NULL);
 	}
+
 	new_dog->owner = malloc(owner_len + 1);
+
 	if (new_dog->owner == NULL)
 	{
 		free(new_dog->name);
