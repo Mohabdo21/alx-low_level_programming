@@ -77,3 +77,27 @@ Main Function and Return Value
 ------------------------------
 
 The `main` function influences the return value of the program. By convention, a return value of `0` typically indicates a successful execution, while a non-zero value indicates an error or abnormal termination.
+
+
+****The Project****:
+
+***0. Preprocessor***
+1. Write a script that runs a `C` file through the preprocessor and save the result into another file.
+
+--- The `C` file name will be saved in the variable `$CFILE`\
+--- The output should be saved in the file `c`\
+File: `0-preprocessor`
+
+***1. Compiler***
+1. Write a script that compiles a `C` file but does not link.
+
+--- The `C` file name will be saved in the variable `$CFILE`.\
+--- The output file should be named the same as the `C` file, but with the extension `.o` instead of `.c`\.
+File: `1-compiler`
+
+***2. Assembler***
+1. Write a script that generates the assembly code of a `C` code and save it in an output file.
+
+--- The C file name will be saved in the variable `$CFILE`
+--- The output file should be named the same as the `C` file, but with the extension `.s` instead of `.c`.
+File: `2-assembler`
