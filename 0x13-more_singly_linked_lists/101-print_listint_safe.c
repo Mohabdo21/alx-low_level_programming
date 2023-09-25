@@ -1,40 +1,40 @@
 #include "lists.h"
+
 /**
- * print_listint_safe - Prints a listint_t linked list.
- * @head: Pointer to the head of the list.
- *
- * This function can print lists with a loop.
- * It goes through the list only once.
- * If the function fails, it exits the program with status 98.
+ * print_listint_safe - Prints a listint_t linked list safely.
+ * @head: A pointer to the head of the list.
  *
  * Return: The number of nodes in the list.
  */
-
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t node_count = 0;
 	const listint_t *current = head;
-	const listint_t *runner = head;
-
-	if (head == NULL)
-		exit(98);
+	const listint_t *loop_start = NULL;
+	size_t node_count = 0;
 
 	while (current != NULL)
 	{
 		printf("[%p] %d\n", (void *)current, current->n);
 		node_count++;
 
-		runner = head;
-		while (runner != current)
+		if (current->next >= current)
 		{
-			if (runner->next == current->next)
-			{
-				printf("-> [%p] %d\n", (void *)current->next, current->next->n);
-				exit(89);
-			}
-			runner = runner->next;
+			loop_start = current->next;
+			break;
 		}
+
 		current = current->next;
+	}
+
+	if (loop_start != NULL)
+	{
+		printf("-> [%p] %d\n", (void *)loop_start, loop_start->n);
+		current = head;
+
+		while (current != loop_start)
+		{
+			current = current->next;
+		}
 	}
 
 	return (node_count);
