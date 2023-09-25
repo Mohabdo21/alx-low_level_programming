@@ -29,12 +29,12 @@ size_t print_listint_safe(const listint_t *head)
 	if (loop_start != NULL)
 	{
 		printf("-> [%p] %d\n", (void *)loop_start, loop_start->n);
-		exit(98);
 		current = head;
 
 		while (current != loop_start)
 		{
 			current = current->next;
+			exit(98);
 		}
 	}
 
