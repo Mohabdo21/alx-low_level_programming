@@ -17,23 +17,22 @@ size_t print_listint_safe(const listint_t *head)
 		printf("[%p] %d\n", (void *)current, current->n);
 		node_count++;
 
-	if (current->next >= current)
-	{
-		loop_start = current->next;
-		printf("-> [%p] %d\n", (void *)loop_start, loop_start->n);
-		break;
-	}
+		if (current->next >= current)
+		{
+			loop_start = current->next;
+			break;
+		}
 
-	current = current->next;
+		current = current->next;
 	}
 
 	if (loop_start != NULL)
 	{
+		printf("-> [%p] %d\n", (void *)loop_start, loop_start->n);
 		current = head;
+
 		while (current != loop_start)
 		{
-			printf("[%p] %d\n", (void *)current, current->n);
-			node_count++;
 			current = current->next;
 		}
 	}
