@@ -1,7 +1,8 @@
 #include "lists.h"
 
 /**
- * print_listint_safe - Prints a listint_t linked list safely.
+ * print_listint_safe - Prints a listint_t linked list safely using
+ * Floyd's Cycle Detection Algorithm (tortoise and hare approach)
  * @head: A pointer to the head of the list.
  *
  * Return: The number of nodes in the list.
