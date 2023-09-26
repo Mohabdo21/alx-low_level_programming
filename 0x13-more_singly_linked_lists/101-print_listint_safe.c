@@ -30,6 +30,5 @@ size_t print_listint_safe(const listint_t *head)
 		printf("-> [%p] %d\n", (void *)loop_start, loop_start->n);
 		exit(98);
 	}
-
 	return (node_count);
 }
