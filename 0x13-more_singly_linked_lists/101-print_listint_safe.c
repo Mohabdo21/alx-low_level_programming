@@ -7,29 +7,34 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t nodes = 0;
-	long int variance;
+	size_t node_count = 0;
+	const listint_t *current = head;
+	const listint_t *address_list[10000];
 
-	if (head == NULL)
+	while (current != NULL)
 	{
-		exit(98);
-	}
+		size_t i;
 
-	while (head)
-	{
-		variance = head - head->next;
-		nodes++;
-
-		printf("[%p] %d\n", (void *)head, head->n);
-
-		if (variance > 0 || (head == head->next))
-			head = head->next;
-		else
+		for (i = 0; i < node_count; i++)
 		{
-			printf("-> [%p] %d\n", (void *)head->next, head->next->n);
-			break;
+			if (current == address_list[i])
+			{
+				printf("-> [%p] %d\n", (void *)current, current->n);
+				return (node_count);
+			}
+		}
+
+		address_list[node_count] = current;
+		printf("[%p] %d\n", (void *)current, current->n);
+		current = current->next;
+		node_count++;
+
+		if (node_count >= 10000)
+		{
+			fprintf(stderr, "Error: List is too long\n");
+			exit(98);
 		}
 	}
 
-	return (nodes);
+	return (node_count);
 }
