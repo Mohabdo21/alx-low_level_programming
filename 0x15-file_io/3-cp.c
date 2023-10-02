@@ -71,7 +71,7 @@ void copy_content(int fd_from, int fd_to, char **av)
 
 	while ((bytes_read = read(fd_from, buffer, sizeof(buffer))) > 0)
 	{
-		bytes_written = write(fd_to, buffer, bytes_read);
+		bytes_written = write(fd_to, buffer, bytes_read - 1);
 		if (bytes_written != bytes_read)
 		{
 			close_file(fd_from);
