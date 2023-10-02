@@ -100,7 +100,7 @@ int main(int ac, char **av)
 	int fd_from, fd_to;
 
 
-	if (ac != 3 || (av[1] || av[2] == NULL))
+	if (ac != 3 && (av[1] || av[2] == NULL))
 		display_error(97, av[0], 0);
 
 	fd_from = open_file(av[1], O_RDONLY, 0);
