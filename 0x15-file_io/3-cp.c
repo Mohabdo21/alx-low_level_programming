@@ -14,7 +14,7 @@ void display_error(int error_code, const char *program_name, int fd)
 	switch (error_code)
 	{
 		case 97:
-			dprintf(2, "Usage: %s file_from file_to\n", program_name);
+			dprintf(2, "Usage: cp file_from file_to\n");
 			break;
 		case 98:
 			dprintf(2, "Error: Can't read from file %s\n", program_name);
