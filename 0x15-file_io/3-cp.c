@@ -105,6 +105,9 @@ int main(int ac, char **av)
 
 	fd_from = open_file(av[1], O_RDONLY, 0);
 
+	if (fd_from == -1)
+		display_error(98, av[1], 0);
+
 	fd_to = open_file(av[2], O_WRONLY | O_CREAT | O_TRUNC,
 			S_IRUSR | S_IWUSR | S_IRGRP |
 			S_IWGRP | S_IROTH);
