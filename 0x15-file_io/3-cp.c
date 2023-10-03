@@ -74,17 +74,17 @@ void copy_content(int fd_from, int fd_to, char **av)
 		bytes_written = write(fd_to, buffer, bytes_read);
 		if (bytes_written != bytes_read)
 		{
+			display_error(99, av[2], 0);
 			close_file(fd_from);
 			close_file(fd_to);
-			display_error(99, av[2], 0);
 		}
 	}
 
 	if (bytes_read == -1)
 	{
+		display_error(98, av[1], 0);
 		close_file(fd_from);
 		close_file(fd_to);
-		display_error(98, av[1], 0);
 	}
 }
 
