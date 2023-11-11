@@ -4,31 +4,31 @@
 #include <stdio.h>
 
 /**
- * f1 - Computes a value based on the input argument.
+ * calculate_case_1 - Performs a specific calculation
+ * based on the given argument.
  *
- * @arg1: The input argument, an integer.
- *
- * Return: The computed value, a 64-bit unsigned integer.
+ * @arg2: The argument to be used in the calculation.
+ * Return: The result of the calculation.
  */
-uint64_t f1(int32_t arg1)
+uint64_t calculate_case_1(int32_t arg2)
 {
-	return ((arg1 ^ 0x3b) & 0x3f);
+	return ((arg2 ^ 0x3b) & 0x3f);
 }
 
 /**
- * f2 - Computes a value based on the input arguments.
+ * calculate_case_2 - Calculates the sum of the
+ * elements in the given array.
  *
- * @arg1: A pointer to the input data.
- * @arg2: The length of the input data.
- *
- * Return: The computed value, a 64-bit unsigned integer.
+ * @arg1: Pointer to the array.
+ * @arg2: The number of elements in the array.
+ * Return: The result of the calculation.
  */
-uint64_t f2(void *arg1, int32_t arg2)
+uint64_t calculate_case_2(void *arg1, int32_t arg2)
 {
 	int32_t var_10 = 0;
-	int32_t i;
+	int i;
 
-	for (i = 0; i < arg2; i = (i + 1))
+	for (i = 0; i < arg2; i++)
 	{
 		var_10 = (var_10 + *((char *)arg1 + i));
 	}
@@ -36,19 +36,19 @@ uint64_t f2(void *arg1, int32_t arg2)
 }
 
 /**
- * f3 - Computes a value based on the input arguments.
+ * calculate_case_3 - Calculates the product of the
+ * elements in the given array.
  *
- * @arg1: A pointer to the input data.
- * @arg2: The length of the input data.
- *
- * Return: The computed value, a 64-bit unsigned integer.
+ * @arg1: Pointer to the array.
+ * @arg2: The number of elements in the array.
+ * Return: The result of the calculation.
  */
-uint64_t f3(void *arg1, int32_t arg2)
+uint64_t calculate_case_3(void *arg1, int32_t arg2)
 {
 	int32_t var_10 = 1;
-	int32_t i;
+	int i;
 
-	for (i = 0; i < arg2; i = (i + 1))
+	for (i = 0; i < arg2; i++)
 	{
 		var_10 = (*((char *)arg1 + i) * var_10);
 	}
@@ -56,80 +56,63 @@ uint64_t f3(void *arg1, int32_t arg2)
 }
 
 /**
- * f4 - Computes a value based on the input arguments.
+ * calculate - Performs a calculation based on the operation code.
  *
- * @arg1: A pointer to the input data.
- * @arg2: The length of the input data.
- *
- * Return: The computed value, a 64-bit unsigned integer.
+ * @operation: The operation code.
+ * @arg1: Pointer to the array (used in some operations).
+ * @arg2: The number of elements in the array or a
+ * specific value (used in some operations).
+ * Return: The result of the calculation.
  */
-uint64_t f4(char *arg1, int32_t arg2)
-{
-	int32_t var_10 = *arg1;
-	int32_t i;
-
-	for (i = 0; i < arg2; i = (i + 1))
-	{
-		if (arg1[i] > var_10)
-		{
-			var_10 = arg1[i];
-		}
-	}
-	srand((var_10 ^ 0xe));
-	return (rand() & 0x3f);
-}
-
-/**
- * f5 - Computes a value based on the input arguments.
- *
- * @arg1: A pointer to the input data.
- * @arg2: The length of the input data.
- *
- * Return: The computed value, a 64-bit unsigned integer.
- */
-uint64_t f5(void *arg1, int32_t arg2)
+uint64_t calculate(int operation, void *arg1, int32_t arg2)
 {
 	int32_t var_10 = 0;
 	int32_t i;
 	int32_t rax_12;
 
-	for (i = 0; i < arg2; i = (i + 1))
+	switch (operation)
 	{
-		var_10 = (var_10 + (*((char *)arg1 + i) * *((char *)arg1 + i)));
+		case 1:
+			return (calculate_case_1(arg2));
+		case 2:
+			return (calculate_case_2(arg1, arg2));
+		case 3:
+			return (calculate_case_3(arg1, arg2));
+		case 4:
+			var_10 = *((char *)arg1);
+			for (i = 0; i < arg2; i = (i + 1))
+			{
+				if (*((char *)arg1 + i) > var_10)
+				{
+					var_10 = *((char *)arg1 + i);
+				}
+			}
+			srand((var_10 ^ 0xe));
+			return (rand() & 0x3f);
+		case 5:
+			for (i = 0; i < arg2; i = (i + 1))
+			{
+				var_10 = (var_10 + (*((char *)arg1 + i) * *((char *)arg1 + i)));
+			}
+			rax_12 = (var_10 ^ 0xef);
+			return (rax_12 & 0x3f);
+		case 6:
+			for (i = 0; *((char *)arg1) > i; i = (i + 1))
+			{
+				var_10 = rand();
+			}
+			rax_12 = (var_10 ^ 0xe5);
+			return (rax_12 & 0x3f);
+		default:
+			return (0);
 	}
-	rax_12 = (var_10 ^ 0xef);
-	return (rax_12 & 0x3f);
-}
-
-/**
- * f6 - Computes a value based on the input argument.
- *
- * @arg1: The input argument, a character.
- *
- * Return: The computed value, a 64-bit unsigned integer.
- */
-uint64_t f6(char arg1)
-{
-	int32_t var_10 = 0;
-	int32_t i;
-	int32_t rax_3;
-
-	for (i = 0; arg1 > i; i = (i + 1))
-	{
-		var_10 = rand();
-	}
-	rax_3 = (var_10 ^ 0xe5);
-	return (rax_3 & 0x3f);
 }
 
 /**
  * main - The main function of the program.
- * It takes a username as an argument and
- * generates a key based on the username.
  *
- * @argc: The number of command-line arguments.
- * @argv: The command-line arguments.
- *
+ * @argc: The number of command line arguments.
+ * @argv: The command line arguments.
  * Return: 0 if the program finishes successfully, 1 otherwise.
  */
 int main(int argc, char **argv)
@@ -148,17 +131,17 @@ int main(int argc, char **argv)
 	len = strlen(username);
 
 	key[0] = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk"
-		[f1(len)];
+		[calculate(1, NULL, len)];
 	key[1] = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk"
-		[f2(username, len)];
+		[calculate(2, username, len)];
 	key[2] = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk"
-		[f3(username, len)];
+		[calculate(3, username, len)];
 	key[3] = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk"
-		[f4(username, len)];
+		[calculate(4, username, len)];
 	key[4] = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk"
-		[f5(username, len)];
+		[calculate(5, username, len)];
 	key[5] = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk"
-		[f6(*username)];
+		[calculate(6, username, 1)];
 	key[6] = '\0';
 
 	printf("%s\n", key);
