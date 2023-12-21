@@ -1,0 +1,27 @@
+1.  **heap_sort function**: This is the main function that sorts an array of integers in ascending order using the Heap sort algorithm.
+
+    -   First, it checks if the array is `NULL` or if the size is less than `2`. If either condition is true, it returns without doing anything.
+    -   Then, it calls the `heapify` function to transform the array into a max heap.
+    -   It initializes `end` as `size - 1`.
+    -   It enters a loop that continues until `end` is greater than `0`. In each iteration of the loop:
+        -   It swaps the root of the heap (first element of the array) with the element at the `end` index.
+        -   It prints the array.
+        -   It decrements `end` by `1`.
+        -   It calls the `sift_down` function to restore the heap property.
+2.  **heapify function**: This function transforms an array into a heap.
+
+    -   It starts with the last parent node.
+    -   It sifts down all nodes from the last parent to the root.
+3.  **sift_down function**: This function repairs a heap whose root element violates the heap property.
+
+    -   It sets `root` as `start`.
+    -   While the `root` has at least one child, it does the following:
+        -   It sets `child` as the left child of the `root`.
+        -   If the `child` has a sibling and the `child's` value is less than its sibling's, it increments `child` by `1`.
+        -   If the `root's` value is less than the `child's`, it swaps the `root` with the `child`, prints the array, and sets `root` as `child`.
+        -   If the `root's` value is not less than the `child's`, it returns.
+4.  **swap function**: This function swaps two elements in an array.
+
+    -   It sets `temp` as the element at index `i` in the array.
+    -   It sets the element at index `i` in the array as the element at index `j`.
+    -   It sets the element at index `j` in the array as `temp`.

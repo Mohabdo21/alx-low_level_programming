@@ -1,0 +1,13 @@
+1.  **Check the input**: The algorithm first checks if the input list is valid. If the list is `NULL`, empty, or contains only one node, the function returns without doing anything.
+
+2.  **Initialize variables**: The algorithm initializes two variables: `swapped` and `node`. `swapped` is a boolean variable used to track whether any nodes were swapped during a pass through the list. `node` is a pointer to the current node being compared.
+
+3.  **Start sorting**: The algorithm enters a loop that continues as long as `swapped` is `true`.
+
+4.  **Forward pass**: The algorithm starts a forward pass through the list from the beginning to the end. It compares each node with its next node. If the current node is greater than the next node, it swaps them using the `swap_nodes` function and sets `swapped` to `true`. After each swap, it prints the list. If no nodes were swapped during the pass (i.e., the list is already sorted), it breaks out of the loop.
+
+5.  **Backward pass**: If nodes were swapped in the forward pass, the algorithm starts a backward pass through the list from the end to the beginning. It compares each node with its previous node. If the current node is less than the previous node, it swaps them and sets `swapped` to `true`. After each swap, it prints the list.
+
+6.  **Repeat**: The algorithm repeats steps 4 and 5 until a complete pass through the list is made without swapping any nodes. At this point, `swapped` remains `false`, the loop ends, and the list is fully sorted in ascending order.
+
+The `swap_nodes` function is used to swap two nodes in the list. It updates the `next` and `prev` pointers of the nodes and the `next` and `prev` pointers of the adjacent nodes. If the first node is at the beginning of the list, it also updates the head of the list.

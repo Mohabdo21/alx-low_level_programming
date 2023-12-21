@@ -1,0 +1,10 @@
+1.  **counting_sort function**: This is the main function that sorts an array of integers in ascending order using the Counting sort algorithm.
+    -   First, it checks if the array is `NULL` or if the size is less than `2`. If either condition is true, it returns without doing anything.
+    -   Then, it finds the maximum number in the array.
+    -   It initializes the count array with a size of `max + 1` and sets all elements to `0`.
+    -   It stores the count of each number in the array. For each number in the array, it increments the corresponding index in the count array.
+    -   It updates the count array such that each element at each index `i` now contains the actual position of this digit in the output array.
+    -   It prints the count array.
+    -   It builds the output array. For each number in the original array, it places the number in the correct position in the output array and decrements the count of that number in the count array.
+    -   It copies the sorted elements from the output array into the original array.
+    -   Finally, it frees the memory allocated for the count and output arrays.
