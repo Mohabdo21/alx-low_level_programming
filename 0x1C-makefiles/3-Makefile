@@ -6,11 +6,8 @@ NAME = school
 RM = rm -f
 
 # Default rule
-all: $(NAME)
-
-# Rule for building the final executable
-$(NAME): $(OBJ)
-	$(CC) $^ -o $@
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
 # Rule for building .o files from .c files
 %.o: %.c
