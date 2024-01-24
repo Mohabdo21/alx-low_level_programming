@@ -1,0 +1,35 @@
+# Variables
+CC = gcc
+SRC = $(wildcard *.c)
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+
+# Default rule
+all: $(NAME)
+
+# Rule for building the final executable
+$(NAME): $(OBJ)
+	$(CC) $^ -o $@
+
+# Rule for building .o files from .c files
+%.o: %.c
+	$(CC) -c -o $@ $<
+
+# Rule for deleting the object files
+oclean:
+	$(RM) $(OBJ)
+
+# Rule for deleting all Emacs and Vim temporary files along with the executable
+clean:
+	$(RM) *~ \#*\# $(NAME)
+
+# Rule for deleting all Emacs and Vim temporary files, the executable, and the object files
+fclean: oclean clean
+
+# Rule for forcing recompilation of all source files
+re: fclean all
+
+# Phony target to prevent file conflicts
+.PHONY: all oclean clean fclean re
+
