@@ -1,8 +1,8 @@
 # Variables
 CC = gcc
 SRC = main.c school.c
-NAME = school
 OBJ = $(SRC:.c=.o)
+NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
 # Default rule
@@ -11,20 +11,17 @@ all: m.h $(OBJ)
 
 # Rule for deleting the object files
 oclean:
-	find . -name "*.o" -type f -delete
+	$(RM) $(OBJ)
 
 # Rule for deleting all Emacs and Vim temporary files along with the executable
 clean:
-	find . -name "*~" -type f -delete
-	find . -name "\#*\#" -type f -delete
-	/bin/rm -f $(NAME)
+	$(RM) *~ \#*\# $(NAME)
 
 # Rule for deleting all Emacs and Vim temporary files, the executable, and the object files
-fclean: oclean clean 
+fclean: oclean clean
 
 # Rule for forcing recompilation of all source files
-re: fclean all
+re: oclean all
 
 # Phony target to prevent file conflicts
-.PHONY: all oclean clean fclean re
-
+.PHONY: all clean oclean fclean re
