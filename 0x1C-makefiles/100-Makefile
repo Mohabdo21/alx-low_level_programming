@@ -1,0 +1,39 @@
+# Variables
+CC = gcc
+SRC = main.c school.c
+NAME = school
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Default rule
+all: $(NAME)
+	./$(NAME)
+
+# Rule for building the final executable
+$(NAME): $(SRC) m.h
+	$(shell $(CC) $(CFLAGS) $(SRC) -o $(NAME))
+
+# Rule for deleting the object files
+oclean:
+	$(shell find . -name "*.o" -type f -delete)
+
+# Rule for deleting all Emacs and Vim temporary files along with the executable
+clean:
+	$(shell find . -name "*~" -type f -delete)
+	$(shell find . -name "\#*\#" -type f -delete)
+	/bin/rm -f $(NAME)
+
+# Rule for deleting all Emacs and Vim temporary files, the executable, and the object files
+fclean: 
+	$(shell find . -name "*.o" -type f -delete)
+	$(shell find . -name "*~" -type f -delete)
+	$(shell find . -name "\#*\#" -type f -delete)
+	/bin/rm -f $(NAME)
+
+# Rule for forcing recompilation of all source files
+re: 
+	$(shell find . -name "*.o" -type f -delete)
+	$(shell $(CC) $(CFLAGS) $(SRC) -o $(NAME))
+
+# Phony target to prevent file conflicts
+.PHONY: all oclean clean fclean re
+

@@ -10,7 +10,7 @@ def island_perimeter(grid):
     """
     width = len(grid[0])
     height = len(grid)
-    grid_expanded = [[0] * (width + 2)]
+    grid_expanded = [[0] * (width + 2)]  # surround the grid by water
     for row in grid:
         grid_expanded.append([0] + row + [0])
     grid_expanded.append([0] * (width + 2))
