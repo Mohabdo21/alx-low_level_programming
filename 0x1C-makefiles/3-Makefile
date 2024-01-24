@@ -1,6 +1,6 @@
 # Variables
 CC = gcc
-SRC = $(wildcard *.c)
+SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
 NAME = school
 RM = rm -f
@@ -8,10 +8,6 @@ RM = rm -f
 # Default rule
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
-
-# Rule for building .o files from .c files
-%.o: %.c
-	$(CC) -c -o $@ $<
 
 # Rule for deleting the object files
 oclean:
@@ -25,8 +21,8 @@ clean:
 fclean: oclean clean
 
 # Rule for forcing recompilation of all source files
-re: fclean all
+re: oclean all
 
 # Phony target to prevent file conflicts
-#.PHONY: all oclean clean fclean re
+.PHONY: all oclean clean fclean re
 
