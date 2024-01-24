@@ -28,5 +28,5 @@ fclean: oclean clean
 re: fclean all
 
 # Phony target to prevent file conflicts
-.PHONY: all oclean clean fclean re
+#.PHONY: all oclean clean fclean re
 
