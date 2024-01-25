@@ -8,21 +8,19 @@ def island_perimeter(grid):
     """
     Returns the perimeter of the island described in grid
     """
-    width = len(grid[0])
     height = len(grid)
-    grid_expanded = [[0] * (width + 2)]  # surround the grid by water
-    for row in grid:
-        grid_expanded.append([0] + row + [0])
-    grid_expanded.append([0] * (width + 2))
-
+    width = len(grid[0]) if height else 0
     perimeter = 0
 
-    for i in range(1, height + 1):
-        for j in range(1, width + 1):
-            if grid_expanded[i][j] == 1:
-                perimeter += grid_expanded[i - 1][j] == 0  # up
-                perimeter += grid_expanded[i + 1][j] == 0  # down
-                perimeter += grid_expanded[i][j - 1] == 0  # left
-                perimeter += grid_expanded[i][j + 1] == 0  # right
+    for i in range(height):
+        for j in range(width):
+            if grid[i][j] == 1:
+                perimeter += 4
+
+                if i > 0 and grid[i - 1][j] == 1:
+                    perimeter -= 2
+
+                if j > 0 and grid[i][j - 1] == 1:
+                    perimeter -= 2
 
     return perimeter
