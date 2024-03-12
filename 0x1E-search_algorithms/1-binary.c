@@ -40,8 +40,6 @@ int binary_search(int *array, size_t size, int value)
 	if (size == 1 && array[0] != value)
 		return (-1);
 	mid = (size - 1) / 2;
-	if (array[mid] == value)
-		return (mid);
 	if (array[mid] > value)
 		return (binary_search(array, mid + 1, value));
 
