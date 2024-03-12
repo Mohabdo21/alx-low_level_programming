@@ -3,21 +3,21 @@
 /**
  * print_array - Prints an array of integers
  * @array: The array to be printed
- * @size: Number of elements in @array
+ * @left: Index of the first element to print
+ * @right: Index of the last element to print
  */
-void print_array(const int *array, size_t size)
+void print_array(int *array, size_t left, size_t right)
 {
 	size_t i;
 
 	printf("Searching in array: ");
-	for (i = 0; i < size; i++)
+	for (i = left; i <= right; i++)
 	{
 		printf("%d", array[i]);
-		if (i < size - 1)
+		if (i < right)
 			printf(", ");
-		else
-			printf("\n");
 	}
+	printf("\n");
 }
 
 /**
@@ -30,27 +30,26 @@ void print_array(const int *array, size_t size)
  */
 int binary_search(int *array, size_t size, int value)
 {
+	size_t left = 0;
+	size_t right = size - 1;
 	size_t mid;
-	int res;
 
 	if (!array || size == 0)
 		return (-1);
 
-	print_array(array, size);
+	while (left <= right)
+	{
+		print_array(array, left, right);
 
-	if (size == 1 && array[0] != value)
-		return (-1);
+		mid = left + (right - left) / 2;
 
-	mid = (size - 1) / 2;
-	if (array[mid] == value)
-		return (mid);
+		if (array[mid] == value)
+			return (mid);
+		else if (array[mid] < value)
+			left = mid + 1;
+		else
+			right = mid - 1;
+	}
 
-	if (array[mid] > value)
-		return (binary_search(array, mid + 1, value));
-
-	res = binary_search(array + mid + 1, size - mid - 1, value);
-	if (res == -1)
-		return (-1);
-
-	return (res + mid + 1);
+	return (-1);
 }
