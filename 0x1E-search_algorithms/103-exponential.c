@@ -6,6 +6,7 @@
  * @size: Number of elements in array
  * @value: Value to search for
  * @index_offset: deviation if the index
+ *
  * Return: The index where value is located, or -1 if value is not present
  */
 int binary_search_e(int *array, size_t size, int value, size_t index_offset)
@@ -57,6 +58,7 @@ int exponential_search(int *array, size_t size, int value)
 	if (!array || size == 0)
 		return (-1);
 
+	/* Doubling the search range until the upper bound exceeds the target value */
 	while (bound < size && array[bound] < value)
 	{
 		printf("Value checked array[%lu] = [%d]\n", bound, array[bound]);
@@ -64,11 +66,16 @@ int exponential_search(int *array, size_t size, int value)
 		bound *= 2;
 	}
 
+	 /* If upper bound exceeds the size, set it to the last index */
 	if (bound >= size)
 		bound = size - 1;
 
 	printf("Value found between indexes [%lu] and [%lu]\n", lower_bound, bound);
+
+	/* Calculate the size of the search range */
 	search_size = bound < size ? bound - lower_bound + 1 : size - lower_bound;
+
+	/* Perform a binary search within the search range */
 	return (binary_search_e(array + lower_bound,
 						 search_size, value, lower_bound));
 }
