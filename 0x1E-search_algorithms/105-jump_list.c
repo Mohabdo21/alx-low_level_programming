@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include <math.h>
 #include "search_algos.h"
 
 /**
- * print_list_e - Prints a list of integers
+ * print_list_e - Prints the value checked at a given index
  * @list: The list to be printed
  */
 void print_list_e(const listint_t *list)
@@ -12,7 +11,8 @@ void print_list_e(const listint_t *list)
 }
 
 /**
- * jump_list - Searches for a value in a sorted list of integers
+ * jump_list - Searches for a value in a sorted list of integers using the
+ * jump search algorithm
  * @list: Pointer to the head of the list to search in
  * @size: Number of nodes in list
  * @value: Value to search for
@@ -37,8 +37,10 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	while (next->index < size - 1 && next->n < value)
 	{
 		prev = next;
+
 		for (i = 0; i < jump && next->next; i++)
 			next = next->next;
+
 		print_list_e(next);
 	}
 
@@ -49,8 +51,10 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	while (prev && prev->index <= next->index)
 	{
 		print_list_e(prev);
+
 		if (prev->n == value)
 			return (prev);
+
 		prev = prev->next;
 	}
 
